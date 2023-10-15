@@ -1,0 +1,253 @@
+/* Define custom CSS variables for colors */
+:root {
+  --color-brand--1: #ffb545;
+  --color-brand--2: #00c46a;
+
+  --color-dark--1: #2d3439;
+  --color-dark--2: #42484d;
+  --color-light--1: #aaa;
+  --color-light--2: #ececec;
+  --color-light--3: rgb(214, 222, 224);
+}
+
+/* Apply a CSS reset to remove default margin, padding, and box-sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+/* Set the base font size and enable box-sizing on the HTML element */
+html {
+  font-size: 62.5%; /* 1rem = 10px (for easier font-size calculation) */
+  box-sizing: border-box;
+}
+
+/* Define styles for the entire page (body) */
+body {
+  font-family: 'Manrope', sans-serif;
+  color: var(--color-light--2);
+  font-weight: 400;
+  line-height: 1.6;
+  height: 100vh; /* Full viewport height */
+  overscroll-behavior-y: none; /* Prevent overscrolling */
+
+  background-color: #fff;
+  padding: 2.5rem;
+
+  display: flex; /* Create a flex container for the page layout */
+}
+
+/* Define styles for links */
+a:link,
+a:visited {
+  color: var(--color-brand--1); /* Link color for unvisited and visited links */
+}
+
+/* Define styles for the sidebar */
+.sidebar {
+  flex-basis: 50rem; /* Sidebar width */
+  background-color: #8a8d8f; /* Background color for the sidebar */
+  padding: 3rem 5rem 4rem 5rem; /* Padding around the content */
+  display: flex; /* Display sidebar content in a column layout */
+  flex-direction: column;
+}
+
+/* Styles for the logo within the sidebar */
+.logo {
+  height: 5.2rem;
+  align-self: center;
+  margin-bottom: 4rem;
+}
+
+/* Styles for the list of workouts within the sidebar */
+.workouts {
+  list-style: none;
+  height: 77vh; /* Max height for workout list */
+  overflow-y: scroll; /* Enable vertical scrolling for overflow */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+/* Customize scrollbar appearance in WebKit-based browsers */
+.workouts::-webkit-scrollbar {
+  width: 0;
+}
+
+/* Styles for individual workout items within the sidebar */
+.workout {
+  background-color: var(--color-dark--2);
+  border-radius: 5px;
+  padding: 1.5rem 2.25rem;
+  margin-bottom: 1.75rem;
+  cursor: pointer; /* Change cursor on hover */
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr; /* Create a grid layout for workout details */
+  gap: 0.75rem 1.5rem; /* Set grid gap */
+}
+
+/* Specific styles for "running" workout items */
+.workout--running {
+  border-left: 5px solid var(--color-brand--2);
+}
+
+/* Specific styles for "cycling" workout items */
+.workout--cycling {
+  border-left: 5px solid var(--color-brand--1);
+}
+
+/* Styles for workout titles */
+.workout__title {
+  font-size: 1.7rem;
+  font-weight: 600;
+  grid-column: 1 / -1; /* Span all grid columns */
+}
+
+/* Styles for workout details (icons, values, and units) */
+.workout__details {
+  display: flex;
+  align-items: baseline; /* Align text and icons vertically */
+}
+
+/* Styles for workout icons */
+.workout__icon {
+  font-size: 1.8rem;
+  margin-right: 0.2rem;
+  height: 0.28rem;
+}
+
+/* Styles for workout values */
+.workout__value {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+/* Styles for workout units */
+.workout__unit {
+  font-size: 1.1rem;
+  color: var(--color-light--1);
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+/* Styles for the workout input form */
+.form {
+  background-color: var(--color-dark--2);
+  border-radius: 5px;
+  padding: 1.5rem 2.75rem;
+  margin-bottom: 1.75rem;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Create a grid for form input fields */
+  gap: 0.5rem 2.5rem; /* Set grid gap */
+
+  /* Match height and activity boxes */
+  height: 9.25rem;
+  transition: all 0.5s, transform 1ms;
+}
+
+/* Hide the form by moving it up and making it transparent */
+.form.hidden {
+  transform: translateY(-30rem);
+  height: 0;
+  padding: 0 2.25rem;
+  margin-bottom: 0;
+  opacity: 0;
+}
+
+/* Styles for form rows */
+.form__row {
+  display: flex;
+  align-items: center;
+}
+
+/* Styles for hidden form rows */
+.form__row--hidden {
+  display: none;
+}
+
+/* Styles for form labels */
+.form__label {
+  flex: 0 0 50%;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* Styles for form input fields */
+.form__input {
+  width: 100%;
+  padding: 0.3rem 1.1rem;
+  font-family: inherit;
+  font-size: 1.4rem;
+  border: none;
+  border-radius: 3px;
+  background-color: var(--color-light--3);
+  transition: all 0.2s;
+}
+
+/* Highlight form input on focus */
+.form__input:focus {
+  outline: none;
+  background-color: #fff;
+}
+
+/* Styles for form buttons (hidden) */
+.form__btn {
+  display: none;
+}
+
+/* Styles for copyright text */
+.copyright {
+  margin-top: auto; /* Move to the bottom of the sidebar */
+  font-size: 1.3rem;
+  text-align: center;
+  color: var(--color-light--1);
+}
+
+/* Styles for Twitter links */
+.twitter-link:link,
+.twitter-link:visited {
+  color: var(--color-light--1);
+  transition: all 0.2s;
+}
+
+/* Highlight Twitter links on hover and active states */
+.twitter-link:hover,
+.twitter-link:active {
+  color: var(--color-light--2);
+}
+
+/* Styles for the map container */
+#map {
+  flex: 1; /* Fill available space in the flex container */
+  height: 100%; /* Fill the entire height of the container */
+  background-color: var(--color-light--1);
+}
+
+/* Styles for leaflet popups */
+.leaflet-popup .leaflet-popup-content-wrapper {
+  background-color: var(--color-dark--1);
+  color: var(--color-light--2);
+  border-radius: 5px;
+  padding-right: 0.6rem;
+}
+
+/* Styles for the content within leaflet popups */
+.leaflet-popup .leaflet-popup-content {
+  font-size: 1.5rem;
+}
+
+/* Styles for the tip of leaflet popups */
+.leaflet-popup .leaflet-popup-tip {
+  background-color: var(--color-dark--1);
+}
+
+/* Specific styles for "running" workout popups */
+.running-popup .leaflet-popup-content-wrapper {
+  border-left: 5px solid var(--color-brand--2);
+}
+
+/* Specific styles for "cycling" workout popups */
+.cycling-popup .leaflet-popup-content-wrapper {
+  border-left: 5px solid var(--color-brand--1);
+}

@@ -1,0 +1,87 @@
+
+# JavaScript Documentation for "MW // Map your workouts"
+
+## Table of Contents
+
+1. **Introduction**
+2. **Global Variables**
+3. **Workout Classes**
+4. **App Class**
+5. **Geolocation and Map Handling**
+6. **Form Handling**
+7. **New Workout Creation**
+8. **Local Storage**
+9. **Reset Function**
+10. **Conclusion**
+
+---
+
+### 1. Introduction
+
+The JavaScript code provided in `script.js` is part of the "MW // Map your workouts" application. It provides the main functionality for creating, rendering, and managing workout entries on a map.
+
+### 2. Global Variables
+
+- `form`: References the workout input form.
+- `containerWorkouts`: References the container for workout entries in the sidebar.
+- `inputType`, `inputDistance`, `inputDuration`, `inputCadence`, and `inputElevation`: Reference various input elements on the workout form.
+
+### 3. Workout Classes
+
+Three classes are defined to represent different types of workouts:
+
+- `Workout`: The base class for workouts, with properties for date, ID, and clicks.
+- `Running`: Extends `Workout` and represents running workouts with properties like cadence and pace.
+- `Cycling`: Extends `Workout` and represents cycling workouts with properties like speed and elevation gain.
+
+### 4. App Class
+
+The `App` class handles the main application functionality, including:
+- Loading the map based on geolocation.
+- Handling form input and toggling elevation/cadence fields.
+- Creating new workout entries and rendering them.
+- Storing workout data in local storage.
+- Resetting the application.
+
+### 5. Geolocation and Map Handling
+
+- The `_getPositions` method checks if geolocation is available and loads the map using Leaflet.
+- The `_loadMap` method initializes and loads the map, setting the view to the user's current location.
+- The `_showForm` method shows the input form when a map location is clicked.
+- The `_hideForm` method hides the form and clears input fields.
+
+### 6. Form Handling
+
+- The `_toggleElevationField` method shows/hides the elevation/cadence fields based on the workout type (running/cycling).
+- The `_newWorkout` method handles the submission of the form, creating a new workout based on input data.
+- It performs validation for input data and differentiates between running and cycling workouts.
+
+### 7. New Workout Creation
+
+- New workouts are created based on user input and stored in the `#workouts` array.
+- They are also rendered on the map as markers and in the sidebar as entries.
+- Specific information like pace and speed is calculated for running and cycling workouts, respectively.
+
+### 8. Local Storage
+
+- The `_setLocalStorage` method stores workout data in local storage in JSON format.
+- The `_getLocalStorage` method retrieves workout data from local storage when the application loads.
+
+### 9. Reset Function
+
+- The `reset` method clears local storage and reloads the application, effectively resetting it.
+
+### 10. Conclusion
+
+Certainly, you can add a section to your JavaScript documentation that directs users to your website for more details and to your GitHub repository for access to the complete code. Here's how you can include these sections in the documentation:
+
+---
+
+### 10. Conclusion
+
+This JavaScript code provides the core functionality for the "MW // Map your workouts" application, enabling users to create, view, and manage workout entries on a map.
+
+For more detailed information, please visit https://manishworx.com/ where you can find comprehensive documentation and additional resources related to this project.
+
+The complete source code is available on https://github.com/worxmani, allowing you to explore, contribute, or customize the application according to your needs.
+
